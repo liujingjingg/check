@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "node"
+after_script:
+  - grunt
+  - cd ./dist
+  - git init
+  - git config user.name "liujingjingg"
+  - git config user.email "949694044@qq.com"
+  - git add .
+  - git commit -m "add check"
+  - git push --force --quiet "https://${ACC_TOKEN}@github.com/liujingjingg/check" master:gh-pages
+
+branches:
+  only:
+    - master
